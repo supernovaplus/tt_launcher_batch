@@ -55,8 +55,8 @@ set /p "selected=## Select server: "
 for /l %%n in (1,1,10) do ( 
    if %selected%==%%n (
        echo ## fivem://connect/cfx.re/join/!server_endpoint[%selected%]!
-       explorer.exe "fivem://connect/cfx.re/join/w8r4q4"
-       echo ## Joining server !server_name[%selected%]!, launcher exitting...
+       explorer.exe "fivem://connect/cfx.re/join/!server_endpoint[%selected%]!"
+       echo ## Joining !server_name[%selected%]!, launcher exitting...
        set found=1
    )
 )
