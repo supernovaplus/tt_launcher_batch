@@ -1,6 +1,6 @@
 @ECHO OFF
 setlocal enabledelayedexpansion 
-set launcher_version=v02
+set launcher_version=v03
 
 TITLE TRANSPORT TYCOON SERVERS (launcher %launcher_version%)
 ECHO ============================
@@ -27,8 +27,12 @@ set server_name[9]=Server #9
 set server_endpoint[9]=wmapod
 set server_name[10]=Server #A
 set server_endpoint[10]=wxjpge
+set server_name[10]=-
+set server_endpoint[10]=-
+set server_name[11]=LITE Transportation
+set server_endpoint[11]=dgpvx3
 
-for /l %%n in (1,1,10) do ( 
+for /l %%n in (1,1,11) do ( 
    echo %%n - !server_name[%%n]!
 )
 
@@ -38,7 +42,7 @@ ECHO ============================
 set found=0
 set /p "selected=## Select server: "
 
-for /l %%n in (1,1,10) do ( 
+for /l %%n in (1,1,11) do ( 
    if %selected%==%%n (
        echo ## fivem://connect/cfx.re/join/!server_endpoint[%selected%]!
        explorer.exe "fivem://connect/cfx.re/join/!server_endpoint[%selected%]!"
