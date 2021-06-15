@@ -1,6 +1,6 @@
 @ECHO OFF
 setlocal enabledelayedexpansion 
-set launcher_version=v02
+set launcher_version=v01
 
 TITLE TRANSPORT TYCOON SERVERS (launcher %launcher_version%)
 ECHO ============================
