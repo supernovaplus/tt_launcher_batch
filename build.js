@@ -1,7 +1,11 @@
 const fs = require("fs");
 
-const build_folder = "build/";
-const src_folder = "src/";
+const build_folder = "./build/";
+const src_folder = "./src/";
+
+try{
+    fs.mkdirSync(build_folder);
+}catch(err){};
 
 fs.readdirSync(build_folder).map(file => fs.unlinkSync(build_folder + file));
 
