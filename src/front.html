@@ -13,14 +13,24 @@
         margin: 0;
     }
 
+    body, textarea {
+        background: #1e5799;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(100%,#7db9e8));
+        background: -webkit-linear-gradient(top,  #1e5799 0%, #7db9e8 100%);
+        background:    -moz-linear-gradient(top,  #1e5799 0%, #7db9e8 100%);
+        background:     -ms-linear-gradient(top,  #1e5799 0%, #7db9e8 100%);
+        background:      -o-linear-gradient(top,  #1e5799 0%, #7db9e8 100%);
+        background:         linear-gradient(to bottom, #1e5799 0%, #7db9e8 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
+        background-attachment: fixed;
+    }
+
     body {
-        background-color: grey;
         font-family: 'Montserrat', sans-serif;
     }
 
     #content {
         margin: 0 auto;
-        background-color: gray;
         width: 550px;
         text-align: center;
     }
@@ -34,11 +44,11 @@
     }
 
     #codeDisplay, textarea {
-        box-shadow: 1px 1px 3px black;
+        box-shadow: 2px 2px 5px black;
     }
 
     textarea {
-        background-color: rgb(160, 160, 160);
+        /* background-color: rgb(160, 160, 160); */
         border: 1px solid black;
         text-align: left;
         resize: none;
@@ -47,13 +57,38 @@
     }
 
     #codeDisplay {
+        font-family: 'Courier New', monospace;
+    }
+
+    #codeDisplay {
         width: 100%;
         margin: 0 auto;
         border: 1px solid white;
-        font-family: 'Courier New', monospace;
         /* font-size: large; */
         font-weight: bold;
         text-align: left;
+    }
+
+    input[type="button"] {
+        padding: 5px;
+        border: none;
+        cursor: pointer;
+    }
+
+    input[type="button"]:hover {
+        background-color: #1f589a;
+        color: white;
+    }
+
+    .color-select{
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    select {
+        border: 1px solid white;
+        text-align: center;
     }
     </style>
 </head>
@@ -64,34 +99,89 @@
             ============================<br>
             &nbsp;&nbsp;TRANSPORT TYCOON SERVERS<br>
             ============================<br>
-            1 - Server #1 (OneSync)<br>
-            2 - Server #2<br>
-            3 - Server #3<br>
-            4 - Server #4<br>
-            5 - Server #5 (Beta)<br>
-            6 - Server #6<br>
-            7 - Server #7<br>
-            8 - Server #8<br>
-            9 - Server #9<br>
-            10 - Server #A<br>
-            11 - -<br>
-            12 - LITE Transportation<br>
+            %%servers_list%%
             ============================<br>
             ## Select server:<br>
             ...
         </div>
-        <h2>Download the launcher: <a href="#">tt_launcher.bat</a></h2>
-        <h4>The Code:</h4>
-        <textarea id="code" readonly>%%bat_code%%</textarea>
+        <div class="color-select">
+            <div>
+                <label for="bgcolor">Background Color</label><br>
+                <select id="bgcolor">
+                    <option value="0" style="color:black" selected>black</option>
+                    <option value="1" style="color: navy;">navy</option>
+                    <option value="2" style="color: green;">green</option>
+                    <option value="3" style="color: teal;">teal</option>
+                    <option value="4" style="color: maroon;">maroon</option>
+                    <option value="5" style="color: purple;">purple</option>
+                    <option value="6" style="color: olive;">olive</option>
+                    <option value="7" style="color: silver;">silver</option>
+                    <option value="8" style="color: gray;">gray</option>
+                    <option value="9" style="color: blue;">blue</option>
+                    <option value="A" style="color: lime;">lime</option>
+                    <option value="B" style="color: aqua;">aqua</option>
+                    <option value="C" style="color: red;">red</option>
+                    <option value="D" style="color: fuchsia;">fuchsia</option>
+                    <option value="E" style="color: yellow;">yellow</option>
+                    <option value="F" style="color: white;">white</option>
+                </select> 
+            </div>
+            <div>
+                <label for="textcolor">Text Color</label><br>
+                <select id="textcolor">
+                    <option value="0" style="color:black">black</option>
+                    <option value="1" style="color: navy;">navy</option>
+                    <option value="2" style="color: green;">green</option>
+                    <option value="3" style="color: teal;">teal</option>
+                    <option value="4" style="color: maroon;">maroon</option>
+                    <option value="5" style="color: purple;">purple</option>
+                    <option value="6" style="color: olive;">olive</option>
+                    <option value="7" style="color: silver;">silver</option>
+                    <option value="8" style="color: gray;">gray</option>
+                    <option value="9" style="color: blue;">blue</option>
+                    <option value="A" style="color: lime;">lime</option>
+                    <option value="B" style="color: aqua;">aqua</option>
+                    <option value="C" style="color: red;">red</option>
+                    <option value="D" style="color: fuchsia;">fuchsia</option>
+                    <option value="E" style="color: yellow;">yellow</option>
+                    <option value="F" style="color: white;" selected>white</option>
+                </select> 
+            </div>
+        </div>
+        <h2>
+            <input type="button" value="download custom launcher" id="btn1" style="font-size: 20px; min-width: 300px;"><br>
+            <input type="button" value="download default" id="btn2" style="font-size: 10px; min-width: 100px;"><br>
+            <input type="button" value="the code" id="btn3" style="font-size: 10px; min-width: 100px;"><br>
+        </h2>
+        <textarea id="code" style="visibility: hidden;" readonly>%%bat_code%%</textarea>
     </div>
     <script>
+        const fileName = "tt_launcher.bat";
         const colorCodes = {"0":"black","1":"navy","2":"green","3":"teal","4":"maroon","5":"purple","6":"olive","7":"silver","8":"gray","9":"blue","A":"lime","B":"aqua","C":"red","D":"fuchsia","E":"yellow","F":"white"};
+        const bgcolor = document.getElementById("bgcolor");
+        const textcolor = document.getElementById("textcolor");
         const codeArea = document.getElementById("code");
-        codeDisplay.style.backgroundColor = colorCodes["0"];
-        codeDisplay.style.color = colorCodes["B"];
+        const customDownloadBtn = document.getElementById("btn1");
+        const defaultDownloadBtn = document.getElementById("btn2");
+        const codeBtn = document.getElementById("btn3");
+        customDownloadBtn.addEventListener("click", download_custom);
+        defaultDownloadBtn.addEventListener("click", () => window.location = fileName);
+        codeBtn.addEventListener("click", () => {
+            codeArea.style.visibility = codeArea.style.visibility === "hidden" ? "visible" : "hidden"
+        });
 
-        function download_the_file(){
-            const fileName = "tt_launcher.bat";
+        changeColor();
+
+        function changeColor () {
+            codeDisplay.style.backgroundColor = colorCodes[bgcolor.value];
+            codeDisplay.style.color = colorCodes[textcolor.value];
+            codeArea.textContent = codeArea.textContent.replace(/COLOR [0-9a-z]+/i, `COLOR ${bgcolor.value}${textcolor.value}`);
+        }
+
+        bgcolor.addEventListener("change", changeColor);
+        textcolor.addEventListener("change", changeColor);
+
+        function download_custom(){
             const data = new Blob([codeArea.value], { type: "text/bat" });
             if (window.navigator && window.navigator.msSaveOrOpenBlob) { // for IE
                 window.navigator.msSaveOrOpenBlob(data, fileName);

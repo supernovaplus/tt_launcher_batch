@@ -1,7 +1,7 @@
 @ECHO OFF
 setlocal enabledelayedexpansion 
-set launcher_version=v04
-COLOR 0b
+set launcher_version=v05
+COLOR 0F
 TITLE TT Launcher %launcher_version%
 ECHO ============================
 ECHO   TRANSPORT TYCOON SERVERS
@@ -47,6 +47,7 @@ for /l %%n in (1,1,12) do (
        echo ## fivem://connect/cfx.re/join/!server_endpoint[%selected%]!
        explorer.exe "fivem://connect/cfx.re/join/!server_endpoint[%selected%]!"
        echo ## Joining !server_name[%selected%]!, launcher exitting...
+       echo ## Sometimes fivem doesn't launch the game first time, try launching the app again if that happens.
        set found=1
    )
 )
