@@ -27,8 +27,8 @@ set server_name[9]=Server #9
 set server_endpoint[9]=wmapod
 set server_name[10]=Server #A
 set server_endpoint[10]=wxjpge
-set server_name[11]=-
-set server_endpoint[11]=-
+set server_name[11]=Event server
+set server_endpoint[11]=event.tycoon.community
 set server_name[12]=LITE Transportation
 set server_endpoint[12]=dgpvx3
 
