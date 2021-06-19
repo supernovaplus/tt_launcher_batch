@@ -13,16 +13,15 @@
         margin: 0;
     }
 
-    body, textarea {
-        background: #1e5799;
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(100%,#7db9e8));
-        background: -webkit-linear-gradient(top,  #1e5799 0%, #7db9e8 100%);
-        background:    -moz-linear-gradient(top,  #1e5799 0%, #7db9e8 100%);
-        background:     -ms-linear-gradient(top,  #1e5799 0%, #7db9e8 100%);
-        background:      -o-linear-gradient(top,  #1e5799 0%, #7db9e8 100%);
-        background:         linear-gradient(to bottom, #1e5799 0%, #7db9e8 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
+    body {
+        background-color: #2c062a;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg stroke='%23000' stroke-width='66.7' stroke-opacity='0.05' %3E%3Ccircle fill='%23ff9d00' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%23fb8d17' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%23f47d24' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23ed6e2d' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%23e35f34' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%23d85239' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%23cc453e' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%23be3941' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%23b02f43' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23a02644' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23901e44' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%23801843' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%236f1341' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%235e0f3d' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%234e0c38' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%233e0933' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%232e062c' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%23210024' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
         background-attachment: fixed;
+        background-size: cover;
+    }
+
+    textarea {
+        background-color: rgba(255, 255, 255, 0.185);
     }
 
     body {
@@ -49,7 +48,7 @@
 
     textarea {
         /* background-color: rgb(160, 160, 160); */
-        border: 1px solid black;
+        border: 1px solid #2c062a;
         text-align: left;
         resize: none;
         width: 100%;
@@ -63,7 +62,7 @@
     #codeDisplay {
         width: 100%;
         margin: 0 auto;
-        border: 1px solid white;
+        border: 1px solid #2c062a;
         /* font-size: large; */
         font-weight: bold;
         text-align: left;
@@ -76,7 +75,7 @@
     }
 
     input[type="button"]:hover {
-        background-color: #1f589a;
+        background-color: #2c062a;
         color: white;
     }
 
@@ -87,8 +86,12 @@
     }
 
     select {
-        border: 1px solid white;
+        border: 1px solid #2c062a;
         text-align: center;
+    }
+
+    h2, label {
+        text-shadow: 1px 1px #891c41;
     }
     </style>
 </head>
@@ -149,9 +152,9 @@
             </div>
         </div>
         <h2>
-            <input type="button" value="download custom launcher" id="btn1" style="font-size: 20px; min-width: 300px;"><br>
-            <input type="button" value="download default" id="btn2" style="font-size: 10px; min-width: 100px;"><br>
-            <input type="button" value="the code" id="btn3" style="font-size: 10px; min-width: 100px;"><br>
+            <input type="button" value="Download Custom Launcher" id="btn1" style="font-size: 20px; min-width: 300px;"><br>
+            <input type="button" value="Download Default" id="btn2" style="font-size: 10px; min-width: 100px;"><br>
+            <input type="button" value="The Code" id="btn3" style="font-size: 10px; min-width: 100px;"><br>
         </h2>
         <textarea id="code" style="visibility: hidden;" readonly>%%bat_code%%</textarea>
     </div>
