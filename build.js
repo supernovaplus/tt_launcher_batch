@@ -25,9 +25,6 @@ template = template
 
 // fs.writeFileSync(build_folder + "tt_launcher.bat", launcher_data);
 
-
-
-
 fs.writeFileSync(build_folder + "index.html", template);
 
 // fs.copyFileSync("src/style.css", build_folder + "style.css");
