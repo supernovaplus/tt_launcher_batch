@@ -6,12 +6,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>%%title%%</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+    * {
+        margin: 0;
+    }
+
+    body {
+        background-color: grey;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    #content {
+        margin: 0 auto;
+        background-color: gray;
+        width: 550px;
+        text-align: center;
+    }
+
+    h2, textarea {
+        width: 100%;
+    }
+    
+    h2, h4 {
+        margin: 15px auto;
+    }
+
+    #codeDisplay, textarea {
+        box-shadow: 1px 1px 3px black;
+    }
+
+    textarea {
+        background-color: rgb(160, 160, 160);
+        border: 1px solid black;
+        text-align: left;
+        resize: none;
+        width: 100%;
+        height: 321px;
+    }
+
+    #codeDisplay {
+        width: 100%;
+        margin: 0 auto;
+        border: 1px solid white;
+        font-family: 'Courier New', monospace;
+        /* font-size: large; */
+        font-weight: bold;
+        text-align: left;
+    }
+    </style>
 </head>
 <body>
-    <h2>%%title%%</h2>
-    <img src="code.jpg" alt="code.jpg">
-    <h2>Download the launcher: <a href="tt_launcher.bat">tt_launcher.bat</a></h2>
-    <h4>code:</h4>
-    <textarea style="width: 511px; height: 321px;">%%bat_code%%</textarea>
+    <div id="content">
+        <h2>%%title%%</h2>
+        <div id="codeDisplay">
+            ============================<br>
+            &nbsp;&nbsp;TRANSPORT TYCOON SERVERS<br>
+            ============================<br>
+            1 - Server #1 (OneSync)<br>
+            2 - Server #2<br>
+            3 - Server #3<br>
+            4 - Server #4<br>
+            5 - Server #5 (Beta)<br>
+            6 - Server #6<br>
+            7 - Server #7<br>
+            8 - Server #8<br>
+            9 - Server #9<br>
+            10 - Server #A<br>
+            11 - -<br>
+            12 - LITE Transportation<br>
+            ============================<br>
+            ## Select server:<br>
+            ...
+        </div>
+        <h2>Download the launcher: <a href="#">tt_launcher.bat</a></h2>
+        <h4>The Code:</h4>
+        <textarea id="code" readonly>%%bat_code%%</textarea>
+    </div>
+    <script>
+        const colorCodes = {"0":"black","1":"navy","2":"green","3":"teal","4":"maroon","5":"purple","6":"olive","7":"silver","8":"gray","9":"blue","A":"lime","B":"aqua","C":"red","D":"fuchsia","E":"yellow","F":"white"};
+        const codeArea = document.getElementById("code");
+        codeDisplay.style.backgroundColor = colorCodes["0"];
+        codeDisplay.style.color = colorCodes["B"];
+
+        // download_the_file();
+        function download_the_file(){
+            const fileName = "tt_launcher.bat";
+            const data = new Blob([codeArea.value], { type: "text/bat" });
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) { // for IE
+                window.navigator.msSaveOrOpenBlob(data, fileName);
+            } else { // for Non-IE (chrome, firefox etc.)
+                const a = document.createElement("a");
+                document.body.appendChild(a);
+                a.style = "display: none";
+                const csvUrl = URL.createObjectURL(data);
+                a.href = csvUrl;
+                a.download = fileName;
+                a.click();
+                URL.revokeObjectURL(a.href)
+                a.remove();
+            }
+        };
+    </script>
 </body>
 </html>

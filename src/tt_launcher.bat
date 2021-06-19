@@ -1,10 +1,10 @@
 @ECHO OFF
 setlocal enabledelayedexpansion 
 set launcher_version=v04
-
-TITLE TTLauncher
+COLOR 0b
+TITLE TT Launcher %launcher_version%
 ECHO ============================
-ECHO   TRANSPORT TYCOON SERVERS (launcher %launcher_version%)
+ECHO   TRANSPORT TYCOON SERVERS
 ECHO ============================
 
 set server_name[1]=Server #1 (OneSync)
